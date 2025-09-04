@@ -1,0 +1,2 @@
+export { useModalAnimation } from './useModalAnimation';
+
