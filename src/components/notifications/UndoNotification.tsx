@@ -111,6 +111,9 @@ const UndoNotification: React.FC<UndoNotificationProps> = ({
           style={[styles.undoButton, { backgroundColor: theme.primary }]}
           onPress={handleUndo}
           activeOpacity={0.8}
+          accessibilityLabel={`Undo completion of task: ${taskTitle}`}
+          accessibilityRole="button"
+          accessibilityHint="Double tap to undo the task completion"
         >
           <Text style={[styles.undoButtonText, { color: theme.white }]}>
             UNDO

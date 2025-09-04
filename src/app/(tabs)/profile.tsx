@@ -40,6 +40,10 @@ export default function ProfileScreen() {
                   themeMode === option.key && styles.themeOptionSelected
                 ]}
                 onPress={() => setThemeMode(option.key as 'light' | 'dark' | 'system')}
+                accessibilityLabel={`Select ${option.label} theme`}
+                accessibilityRole="button"
+                accessibilityState={{ selected: themeMode === option.key }}
+                accessibilityHint={`Double tap to switch to ${option.label} theme`}
               >
                 <View style={styles.themeOptionLeft}>
                   <View style={[

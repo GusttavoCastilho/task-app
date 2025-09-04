@@ -49,6 +49,9 @@ const MeetingsTab: React.FC<MeetingsTabProps> = ({ meetings }) => {
       <TouchableOpacity 
         style={styles.meetingButton}
         onPress={() => handleMeetingPress(meeting.id)}
+        accessibilityLabel={`Join meeting: ${meeting.title}`}
+        accessibilityRole="button"
+        accessibilityHint="Double tap to join this meeting"
       >
         <Ionicons name="videocam-outline" size={20} color="#3B82F6" />
       </TouchableOpacity>

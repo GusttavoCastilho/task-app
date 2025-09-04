@@ -218,6 +218,10 @@ const TaskCard: React.FC<TaskCardProps> = ({
         onPress={handleCheckboxPress}
         activeOpacity={0.7}
         hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+        accessibilityLabel={isCompleted ? `Mark ${task.title} as incomplete` : `Mark ${task.title} as complete`}
+        accessibilityRole="checkbox"
+        accessibilityState={{ checked: isCompleted }}
+        accessibilityHint="Double tap to toggle task completion status"
       >
         {(isCompleted || isAnimatingCheckbox) && (
           <Icon name="check2" size={10} color={theme.white} />
@@ -234,6 +238,9 @@ const TaskCard: React.FC<TaskCardProps> = ({
             style={styles.taskLeft}
             onPress={onPress}
             activeOpacity={0.7}
+            accessibilityLabel={`Task: ${task.title}. Category: ${task.category}. Due date: ${task.dueDate}${isOverdue ? '. Overdue' : ''}`}
+            accessibilityRole="button"
+            accessibilityHint="Double tap to view task details"
           >
             {renderTaskIcon()}
             {renderTaskContent()}

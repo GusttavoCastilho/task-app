@@ -47,6 +47,9 @@ const NotesTab: React.FC<NotesTabProps> = ({ notes }) => {
       <TouchableOpacity 
         style={styles.noteButton}
         onPress={() => handleNotePress(note.id)}
+        accessibilityLabel={`Open note: ${note.title}`}
+        accessibilityRole="button"
+        accessibilityHint="Double tap to open this note"
       >
         <Ionicons name="chevron-forward" size={20} color="#666" />
       </TouchableOpacity>

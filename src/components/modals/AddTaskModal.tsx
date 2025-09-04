@@ -201,6 +201,8 @@ const AddTaskModal: React.FC<AddTaskModalProps> = ({
         value={newTask.title}
         onChangeText={(text) => setNewTask(prev => ({ ...prev, title: text }))}
         autoFocus={true}
+        accessibilityLabel="Task title input"
+        accessibilityHint="Enter the title for your new task"
       />
     </View>
   );
@@ -214,6 +216,9 @@ const AddTaskModal: React.FC<AddTaskModalProps> = ({
           borderColor: theme.border
         }]}
         onPress={() => setShowCategorySelect(true)}
+        accessibilityLabel={`Category selector. Current selection: ${newTask.category || 'None'}`}
+        accessibilityRole="button"
+        accessibilityHint="Double tap to open category selection"
       >
         <Text style={[styles.selectButtonText, !newTask.category && styles.placeholderText, {
           color: newTask.category ? theme.text : theme.textTertiary
@@ -234,6 +239,9 @@ const AddTaskModal: React.FC<AddTaskModalProps> = ({
           borderColor: theme.border
         }]}
         onPress={() => setShowDatePicker(true)}
+        accessibilityLabel={`Due date selector. Current selection: ${newTask.dueDate || 'None'}`}
+        accessibilityRole="button"
+        accessibilityHint="Double tap to open date picker"
       >
         <Text style={[styles.selectButtonText, !newTask.dueDate && styles.placeholderText, {
           color: newTask.dueDate ? theme.text : theme.textTertiary
@@ -252,6 +260,9 @@ const AddTaskModal: React.FC<AddTaskModalProps> = ({
           borderColor: theme.border
         }]} 
         onPress={hideModal}
+        accessibilityLabel="Cancel"
+        accessibilityRole="button"
+        accessibilityHint="Double tap to cancel and close the modal"
       >
         <Text style={[styles.cancelButtonText, { color: theme.textSecondary }]}>Cancel</Text>
       </TouchableOpacity>
@@ -259,6 +270,10 @@ const AddTaskModal: React.FC<AddTaskModalProps> = ({
         style={[styles.saveButton, isSaveDisabled && styles.saveButtonDisabled]} 
         onPress={handleSaveTask}
         disabled={isSaveDisabled}
+        accessibilityLabel="Save task"
+        accessibilityRole="button"
+        accessibilityState={{ disabled: isSaveDisabled }}
+        accessibilityHint={isSaveDisabled ? "Enter a task title to enable saving" : "Double tap to save the task"}
       >
         <Text style={styles.saveButtonText}>Save Task</Text>
       </TouchableOpacity>
@@ -286,6 +301,9 @@ const AddTaskModal: React.FC<AddTaskModalProps> = ({
             style={styles.modalBackdropTouchable} 
             activeOpacity={1} 
             onPress={hideModal}
+            accessibilityLabel="Close modal"
+            accessibilityRole="button"
+            accessibilityHint="Double tap to close the modal"
           />
         </Animated.View>
         
@@ -306,7 +324,13 @@ const AddTaskModal: React.FC<AddTaskModalProps> = ({
             <View style={{ width: 40, height: 4, backgroundColor: theme.border, borderRadius: 2, alignSelf: 'center', marginTop: 8, marginBottom: 8 }} />
           <View style={styles.modalHeader}>
             <Text style={styles.modalTitle}>Add New Task</Text>
-            <TouchableOpacity onPress={hideModal} style={styles.closeButton}>
+            <TouchableOpacity 
+              onPress={hideModal} 
+              style={styles.closeButton}
+              accessibilityLabel="Close modal"
+              accessibilityRole="button"
+              accessibilityHint="Double tap to close the modal"
+            >
               <Ionicons name="close" size={24} color={theme.textSecondary} />
             </TouchableOpacity>
           </View>
@@ -328,7 +352,12 @@ const AddTaskModal: React.FC<AddTaskModalProps> = ({
           <View style={[styles.categoryModalContent, { backgroundColor: theme.background }]}>
             <View style={[styles.categoryModalHeader, { borderBottomColor: theme.border }]}>
               <Text style={[styles.categoryModalTitle, { color: theme.text }]}>Select Category</Text>
-              <TouchableOpacity onPress={() => setShowCategorySelect(false)}>
+              <TouchableOpacity 
+                onPress={() => setShowCategorySelect(false)}
+                accessibilityLabel="Close category selection"
+                accessibilityRole="button"
+                accessibilityHint="Double tap to close category selection"
+              >
                 <Ionicons name="close" size={24} color={theme.textSecondary} />
               </TouchableOpacity>
             </View>
@@ -338,6 +367,10 @@ const AddTaskModal: React.FC<AddTaskModalProps> = ({
                   key={option.key}
                   style={[styles.categoryOption, { borderBottomColor: theme.divider }]}
                   onPress={() => handleCategorySelect(option.value)}
+                  accessibilityLabel={`Select category: ${option.value}`}
+                  accessibilityRole="button"
+                  accessibilityState={{ selected: newTask.category === option.value }}
+                  accessibilityHint="Double tap to select this category"
                 >
                   <Text style={[styles.categoryOptionText, { color: theme.text }]}>{option.value}</Text>
                   {newTask.category === option.value && (
@@ -350,6 +383,9 @@ const AddTaskModal: React.FC<AddTaskModalProps> = ({
               <TouchableOpacity 
                 style={[styles.categoryDoneButton, { backgroundColor: theme.primary }]}
                 onPress={() => setShowCategorySelect(false)}
+                accessibilityLabel="Done"
+                accessibilityRole="button"
+                accessibilityHint="Double tap to confirm category selection"
               >
                 <Text style={styles.categoryDoneButtonText}>Done</Text>
               </TouchableOpacity>
@@ -364,7 +400,12 @@ const AddTaskModal: React.FC<AddTaskModalProps> = ({
           <View style={[styles.datePickerContainer, { backgroundColor: theme.background }]}>
             <View style={[styles.datePickerHeader, { borderBottomColor: theme.border }]}>
               <Text style={[styles.datePickerTitle, { color: theme.text }]}>Select Due Date</Text>
-              <TouchableOpacity onPress={() => setShowDatePicker(false)}>
+              <TouchableOpacity 
+                onPress={() => setShowDatePicker(false)}
+                accessibilityLabel="Close date picker"
+                accessibilityRole="button"
+                accessibilityHint="Double tap to close date picker"
+              >
                 <Ionicons name="close" size={24} color={theme.textSecondary} />
               </TouchableOpacity>
             </View>
@@ -382,6 +423,9 @@ const AddTaskModal: React.FC<AddTaskModalProps> = ({
                 <TouchableOpacity 
                   style={[styles.datePickerButton, { backgroundColor: theme.primary }]}
                   onPress={() => setShowDatePicker(false)}
+                  accessibilityLabel="Done"
+                  accessibilityRole="button"
+                  accessibilityHint="Double tap to confirm date selection"
                 >
                   <Text style={styles.datePickerButtonText}>Done</Text>
                 </TouchableOpacity>

@@ -100,6 +100,9 @@ const TabLayoutContent = () => {
                 }}
                 onPress={handleAddButtonPress}
                 activeOpacity={0.8}
+                accessibilityLabel="Add new task"
+                accessibilityRole="button"
+                accessibilityHint="Double tap to open the add task modal"
               >
                 <Icon name="plus" size={36} color={theme.white} />
               </TouchableOpacity>

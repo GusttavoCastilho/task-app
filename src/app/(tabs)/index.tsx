@@ -160,10 +160,20 @@ export default function MyWorkScreen() {
       <View style={styles.headerTop}>
         <Text style={styles.headerTitle}>My Work</Text>
         <View style={styles.headerIcons}>
-          <TouchableOpacity style={styles.iconButton}>
+          <TouchableOpacity 
+            style={styles.iconButton}
+            accessibilityLabel="Notifications"
+            accessibilityRole="button"
+            accessibilityHint="Double tap to view notifications"
+          >
             <Icon name="notification" size={24} color={theme.text} />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.iconButton}>
+          <TouchableOpacity 
+            style={styles.iconButton}
+            accessibilityLabel="History"
+            accessibilityRole="button"
+            accessibilityHint="Double tap to view task history"
+          >
             <Icon name="history" size={24} color={theme.text} />
           </TouchableOpacity>
         </View>
@@ -174,6 +184,9 @@ export default function MyWorkScreen() {
         <TouchableOpacity 
           style={styles.filterButton}
           onPress={handleOpenFilterModal}
+          accessibilityLabel={`Filter tasks. Current filter: ${filterOption}`}
+          accessibilityRole="button"
+          accessibilityHint="Double tap to open filter options"
         >
           <Icon name="folder" size={16} color={theme.text} />
           <Text style={styles.filterText}>{filterOption}</Text>
@@ -190,6 +203,10 @@ export default function MyWorkScreen() {
           key={tab.key}
           style={[styles.tab, activeTab === tab.key && styles.activeTab]}
           onPress={() => handleTabChange(tab.key)}
+          accessibilityLabel={`${tab.label} tab`}
+          accessibilityRole="tab"
+          accessibilityState={{ selected: activeTab === tab.key }}
+          accessibilityHint={`Double tap to switch to ${tab.label} tab`}
         >
           <Text style={[styles.tabText, activeTab === tab.key && styles.activeTabText]}>
             {tab.label}
@@ -211,6 +228,9 @@ export default function MyWorkScreen() {
         style={[styles.modalOverlay, { backgroundColor: theme.modalOverlay }]}
         activeOpacity={1}
         onPress={handleCloseFilterModal}
+        accessibilityLabel="Close filter modal"
+        accessibilityRole="button"
+        accessibilityHint="Double tap to close the filter modal"
       >
         <View style={styles.filterModal}>
           <Text style={styles.filterModalTitle}>Filter Tasks</Text>
@@ -222,6 +242,10 @@ export default function MyWorkScreen() {
                 filterOption === option && styles.filterOptionSelected
               ]}
               onPress={() => handleFilterSelect(option)}
+              accessibilityLabel={`Filter by ${option}`}
+              accessibilityRole="button"
+              accessibilityState={{ selected: filterOption === option }}
+              accessibilityHint="Double tap to apply this filter"
             >
               <Text style={[
                 styles.filterOptionText,

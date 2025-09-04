@@ -49,6 +49,9 @@ const RemindersTab: React.FC<RemindersTabProps> = ({ reminders }) => {
       <TouchableOpacity 
         style={styles.reminderCheckbox}
         onPress={() => handleReminderPress(reminder.id)}
+        accessibilityLabel={`Mark reminder as complete: ${reminder.title}`}
+        accessibilityRole="checkbox"
+        accessibilityHint="Double tap to mark this reminder as complete"
       >
         <View style={styles.reminderCheckboxInner} />
       </TouchableOpacity>
