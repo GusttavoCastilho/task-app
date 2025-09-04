@@ -74,12 +74,19 @@
 
 ## 🚀 Try it Now
 
-### **Expo Snack (Recommended)**
+### **🌐 Live Web App (Recommended for Interviews)**
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-00D4AA?style=for-the-badge&logo=vercel&logoColor=white)](https://yourusername.github.io/task-app)
+
+**Perfect for interviews** - Permanent link, no setup required, works on all devices.
+
+**Setup:** See [GITHUB_PAGES_SETUP.md](./GITHUB_PAGES_SETUP.md) for deployment instructions.
+
+### **📱 Expo Snack (Quick Test)**
 [![Open in Snack](https://img.shields.io/badge/Open%20in%20Snack-000000?style=for-the-badge&logo=expo&logoColor=white)](https://snack.expo.dev)
 
-Click the button above to try the app directly in your browser or on your mobile device using the Expo Go app.
+**For immediate testing** - Works in browser or mobile with Expo Go app.
 
-### **Local Development**
+### **💻 Local Development**
 
 1. **Clone the repository**
    ```bash
@@ -212,6 +219,25 @@ expo build:ios
 # Or use EAS Build
 eas build --platform all
 ```
+
+---
+
+## 📋 **For Interviewers**
+
+**Quick Start Options:**
+1. **🌐 [Live Web App](https://yourusername.github.io/task-app)** - Best for interviews (permanent link)
+2. **💻 [Local Setup](#-development-setup)** - Full code review
+
+**Note:** Expo Snack has compatibility issues. Use GitHub Pages for reliable testing.
+
+**What to Test:**
+- ✅ Create, edit, and delete tasks
+- ✅ Mark tasks as complete
+- ✅ Theme switching (dark/light mode)
+- ✅ Smooth animations and interactions
+- ✅ Responsive design on different screen sizes
+
+**See [INTERVIEW_GUIDE.md](./INTERVIEW_GUIDE.md) for detailed testing instructions.**
 
 ---
 
