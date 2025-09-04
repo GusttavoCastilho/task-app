@@ -1,0 +1,36 @@
+{
+  "name": "Task App - Productivity Manager",
+  "description": "A beautiful and intuitive task management app built with React Native and Expo. Features task creation, reminders, meetings, and notes with a modern UI and smooth animations.",
+  "slug": "task-app-productivity",
+  "version": "1.0.0",
+  "orientation": "portrait",
+  "icon": "./assets/images/icon.png",
+  "userInterfaceStyle": "automatic",
+  "splash": {
+    "image": "./assets/images/splash-icon.png",
+    "resizeMode": "contain",
+    "backgroundColor": "#ffffff"
+  },
+  "assetBundlePatterns": [
+    "**/*"
+  ],
+  "ios": {
+    "supportsTablet": true
+  },
+  "android": {
+    "adaptiveIcon": {
+      "foregroundImage": "./assets/images/adaptive-icon.png",
+      "backgroundColor": "#ffffff"
+    }
+  },
+  "web": {
+    "favicon": "./assets/images/favicon.png",
+    "bundler": "metro"
+  },
+  "plugins": [
+    "expo-router"
+  ],
+  "experiments": {
+    "typedRoutes": true
+  }
+}
